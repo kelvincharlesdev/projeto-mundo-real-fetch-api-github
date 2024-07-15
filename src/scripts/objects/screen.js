@@ -8,6 +8,8 @@ export const screen = {
                 <div class="data">
                     <h1>${user.name ?? "Não possui nome cadastrado 😒"}</h1>
                     <p>${user.bio ?? "Não possui bio cadastrada 😒"}</p>
+                    <p>Seguidores: ${user.followers ?? "Não possui seguidores 😒"}</p>
+                    <p>Seguindo: ${user.following ?? "Ainda não segue ninguém 😒!"}</p>
                 </div>
             </div>
         `
@@ -30,9 +32,10 @@ export const screen = {
                 </div>
             `
         }
+
       
     },
     renderNotFound() {
         this.userProfile.innerHTML  = `<h3>Usuário não encontrado!</h3>`
-    }
+    },
 }
