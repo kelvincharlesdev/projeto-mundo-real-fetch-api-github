@@ -2,6 +2,7 @@ import {getUser} from "./services/getUser.js"
 import { getRepositories} from "./services/getRepositories.js"
 import { user } from "./objects/user.js"
 import { screen } from "./objects/screen.js"
+import { getEvents } from "./services/getEvents.js"
 
 document.getElementById('btn-search').addEventListener('click', () => {
     const userName = document.getElementById('input-search').value
@@ -18,7 +19,6 @@ document.getElementById('input-search').addEventListener('keyup', (e) => {
         if(validateEmptyInput(userName)) return
         getUserData(userName)
     }
-
 })
 
 const validateEmptyInput = (userName) =>  {
@@ -37,11 +37,13 @@ const getUserData = async (userName) => {
     }
 
     const repositoriesResponse = await getRepositories(userName)
-    
-   user.setInfo(userResponse)
-   user.setRepositories(repositoriesResponse)
+    const eventsResponse = await getEvents(userName)
+        
+    user.setInfo(userResponse)
+    user.setRepositories(repositoriesResponse)
+    user.setEvents(eventsResponse)
 
-   screen.renderUser(user)
+    screen.renderUser(user)
 
 }
 

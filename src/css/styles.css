@@ -152,6 +152,10 @@ main {
   display: none;
 }
 
+.name-repo {
+  font-weight: bold
+}
+
 @media (max-width: 1280px) {
   .container {
     flex-direction: column;
