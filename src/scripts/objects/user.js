@@ -6,6 +6,7 @@ export const user = {
     followers: '',
     following: '',
     repositories: [],
+    events: [],
     setInfo(gitHubUser){
         this.avatarUrl = gitHubUser.avatar_url
         this.name = gitHubUser.name

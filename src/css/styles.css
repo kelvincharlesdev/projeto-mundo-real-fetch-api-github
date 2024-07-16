@@ -141,6 +141,21 @@ main {
   display: block;
   border-radius: 7px;
   transition: 0.3s ease-in-out;
+ 
+}
+
+.info-repo{
+  margin-top: 20px;
+  display: flex;
+  gap: 5px
+}
+
+.info-repo-itens {
+  background-color: #A970FF;
+  padding: 5px;
+  border-radius: 10px;
+  gap: 5px;
+  
 }
 
 .container .profile-data .repositories ul li a:hover{

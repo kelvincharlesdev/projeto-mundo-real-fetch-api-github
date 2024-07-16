@@ -15,9 +15,18 @@ export const screen = {
         `
         let repositoriesItens = ""
         user.repositories.forEach(repo => {
+            console.log(`Repos: `, repo);
             repositoriesItens += `
             <li>
-                <a href="${repo.html_url}"  target="_blank">${repo.name}</a>
+                <a href="${repo.html_url}"  target="_blank">
+                    ${repo.name}
+                    <div class="info-repo">
+                    <span class="info-repo-itens ">🔀${repo.forks}</span>
+                    <span class="info-repo-itens ">⭐${repo.stargazers_count}</span>
+                    <span class="info-repo-itens ">👀${repo.watchers_count}</span>
+                    <span class="info-repo-itens ">👨‍💻${repo.language}</span>
+                    </div>
+                </a>
             </li>
             `
         });
