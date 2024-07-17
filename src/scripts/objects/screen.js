@@ -15,7 +15,6 @@ export const screen = {
         `
         let repositoriesItens = ""
         user.repositories.forEach(repo => {
-            console.log(`Repos: `, repo);
             repositoriesItens += `
             <li>
                 <a href="${repo.html_url}"  target="_blank">
