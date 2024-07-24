@@ -20,10 +20,10 @@ export const screen = {
                 <a href="${repo.html_url}"  target="_blank">
                     ${repo.name}
                     <div class="info-repo">
-                    <span class="info-repo-itens ">🔀${repo.forks}</span>
-                    <span class="info-repo-itens ">⭐${repo.stargazers_count}</span>
-                    <span class="info-repo-itens ">👀${repo.watchers_count}</span>
-                    <span class="info-repo-itens ">👨‍💻${repo.language}</span>
+                    <span class="info-repo-itens ">🔀${repo.forks !== 0 ? repo.forks : "Sem forks 😒"}</span>
+                    <span class="info-repo-itens ">⭐${repo.stargazers_count !== 0 ? repo.stargazers_count : "Sem estrelas 😒"}</span>
+                    <span class="info-repo-itens ">👀${repo.watchers_count !== 0 ? repo.watchers_count : "Sem views 😒" }</span>
+                    <span class="info-repo-itens ">👨‍💻${repo.language !== null ? repo.language  : "Sem linguagem😒"}</span>
                     </div>
                 </a>
             </li>
@@ -44,7 +44,7 @@ export const screen = {
 
         let eventsItem = ''
         user.events.forEach(event => {
-            if (event.type === "PushEvent" || event.type === "CreateEvent") {
+            
                 if (event.type === "PushEvent") {
                      eventsItem += `
                         <li>
@@ -52,17 +52,14 @@ export const screen = {
                             <br/>
                         </li>
                     `
-                }
-
-                if (event.type === "CreateEvent") {
+                }else if (event.type === "CreateEvent") {
                     eventsItem += `
-                        <li>
-                            <p class="name-repo">${event.repo.name}: <span> - Sem mensagem de commit</span></p>
-                            <br/>
-                        </li>
-                    `
+                    <li>
+                        <p class="name-repo">${event.repo.name}: <span> - Sem mensagem de commit</span></p>
+                        <br/>
+                    </li>
+                `
                 }
-            }
         });
 
         this.userProfile.innerHTML += `
